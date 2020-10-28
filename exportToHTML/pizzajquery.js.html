@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>pizzajquery.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #cc7832;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+pizzajquery.js</font>
+</center></td></tr></table>
+<pre><span class="s0">$(document). ready(</span>
+    <span class="s1">function</span><span class="s0">() {</span>
+        <span class="s2">// event handlers</span>
+        <span class="s0">$(</span><span class="s3">&quot;#calculateFee&quot;</span><span class="s0">).click(calculateFee)</span><span class="s1">;</span>
+
+
+        <span class="s2">// other functions</span>
+        <span class="s1">function </span><span class="s0">calculateFee()</span>
+        <span class="s0">{</span>
+
+            <span class="s2">// get all input from boxes and parse to number data type</span>
+            <span class="s1">var </span><span class="s0">numOfBooks = $(</span><span class="s3">&quot;#numOfBooks&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">numOfBooks = parseFloat(numOfBooks)</span><span class="s1">;</span>
+
+            <span class="s1">var </span><span class="s0">daysLate = $(</span><span class="s3">&quot;#daysLate&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">daysLate = parseFloat(daysLate * </span><span class="s4">0.25</span><span class="s0">)</span><span class="s1">;</span>
+
+
+
+            <span class="s1">var </span><span class="s0">numOfDVDs = $(</span><span class="s3">&quot;#numOfDVDs&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">numOfDVDs = parseFloat(numOfDVDs)</span><span class="s1">;</span>
+
+            <span class="s1">var </span><span class="s0">daysLateDVD = $(</span><span class="s3">&quot;#daysLateDVD&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">daysLateDVD = parseFloat(daysLateDVD * </span><span class="s4">0.50</span><span class="s0">)</span><span class="s1">;</span>
+
+
+
+            <span class="s2">// calculate cost and time</span>
+
+
+            <span class="s1">var </span><span class="s0">totalCostDVD = numOfDVDs * daysLateDVD </span><span class="s1">;</span>
+
+            <span class="s1">var </span><span class="s0">totalBooks = numOfBooks * daysLate</span><span class="s1">;</span>
+
+            <span class="s1">var </span><span class="s0">totalCost = totalBooks + totalCostDVD</span><span class="s1">;</span>
+
+
+
+            <span class="s2">// put output into paragraphs</span>
+
+
+            <span class="s0">$(</span><span class="s3">&quot;#costOutput&quot;</span><span class="s0">).text(</span><span class="s3">`Your total late fees are $ </span><span class="s0">${totalCost.toFixed(</span><span class="s4">2</span><span class="s0">)} </span><span class="s3">`</span><span class="s0">)</span><span class="s1">;</span>
+
+
+        <span class="s0">}</span>
+
+    <span class="s0">}</span>
+<span class="s0">)</span><span class="s1">;</span>
+
+<span class="s0">$(document). ready(</span>
+    <span class="s1">function</span><span class="s0">() {</span>
+        <span class="s2">// event handlers</span>
+        <span class="s0">$(</span><span class="s3">&quot;#calculateSplit &quot;</span><span class="s0">).click(calculateSplit)</span><span class="s1">;</span>
+
+
+        <span class="s2">// other functions</span>
+        <span class="s1">function </span><span class="s0">calculateSplit()</span>
+        <span class="s0">{</span>
+
+            <span class="s2">// get all input from boxes and parse to number data type</span>
+            <span class="s1">var </span><span class="s0">numOfPizzas = $(</span><span class="s3">&quot;#numOfPizzas&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">numOfPizzas = parseFloat(numOfPizzas * </span><span class="s4">15</span><span class="s0">)</span><span class="s1">;</span>
+
+            <span class="s1">var </span><span class="s0">amountOfToppings = $(</span><span class="s3">&quot;#amountOfToppings&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">amountOfToppings = parseFloat(amountOfToppings * </span><span class="s4">1.25</span><span class="s0">)</span><span class="s1">;</span>
+
+
+
+            <span class="s1">var </span><span class="s0">numOfPeople = $(</span><span class="s3">&quot;#numOfPeople&quot;</span><span class="s0">).val()</span><span class="s1">;</span>
+            <span class="s0">numOfPeople = parseFloat(numOfPeople)</span><span class="s1">;</span>
+
+
+
+
+            <span class="s2">// calculate cost and time</span>
+
+
+            <span class="s1">var </span><span class="s0">totalCost = numOfPizzas + amountOfToppings</span><span class="s1">;</span>
+
+            <span class="s1">var </span><span class="s0">costSplit = totalCost / numOfPeople</span><span class="s1">;</span>
+
+
+
+
+            <span class="s2">// put output into paragraphs</span>
+
+
+            <span class="s0">$(</span><span class="s3">&quot;#splitOutput&quot;</span><span class="s0">).text(</span><span class="s3">`Your total for this bill is $ </span><span class="s0">${costSplit.toFixed(</span><span class="s4">2</span><span class="s0">)} </span><span class="s3">`</span><span class="s0">)</span><span class="s1">;</span>
+
+
+        <span class="s0">}</span>
+
+    <span class="s0">}</span>
+<span class="s0">)</span><span class="s1">;</span></pre>
+</body>
+</html>
